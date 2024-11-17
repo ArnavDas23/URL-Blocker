@@ -1,0 +1,39 @@
+{
+    "author": "arnavrdas@gmail.com",
+
+    "manifest_version": 3,
+    "name": "URL Blocker",
+    "version": "0.0.1",
+
+    "description": "Allows the user to choose a list of websites/URLs they want to access and blocks everything else.",
+    "icons": {
+        "16": "-config/images/icon.png",
+        "32": "-config/images/icon.png",
+        "48": "-config/images/icon.png",
+        "128": "-config/images/icon.png"
+    },
+
+    "action": {
+        "default_icon": {
+            "16": "-config/images/icon.png",
+            "48": "-config/images/icon.png",
+            "128": "-config/images/icon.png"
+        },
+        "default_popup": "-config/popup.html",
+        "default_title": "Hovering on pinned extension..."
+    },
+    "options_page": "-config/options.html",
+    "background": {
+        "service_worker": "-config/scripts/service-worker.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "-config/content-scripts/apt.js"
+            ]
+        }
+    ]
+}
